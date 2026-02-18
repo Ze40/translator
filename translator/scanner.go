@@ -1,6 +1,8 @@
 package translator
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Scanner struct {
 	// Фиксированные таблицы
@@ -38,7 +40,6 @@ func NewScanner() *Scanner {
 	scanner.oTable = oTableInit
 	scanner.rTable = rTableInit
 
-	// Initialize dynamic tables
 	scanner.iTable = make(map[string]string)
 	scanner.nTable = make(map[string]string)
 	scanner.cTable = make(map[string]string)
@@ -46,26 +47,38 @@ func NewScanner() *Scanner {
 	return scanner
 }
 
-func (s *Scanner) AddIdentifier(lexeme string) {
-	if _, exists := s.iTable[lexeme]; exists {
-		return
+func (s *Scanner) AddIdentifier(lexeme string) int {
+	if code, exists := s.iTable[lexeme]; exists {
+		var num int
+		fmt.Sscanf(code, "I%d", &num)
+		return num
 	}
+
 	var nextCode int = len(s.iTable) + 1
-	s.iTable[fmt.Sprintf("I%d", nextCode)] = lexeme
+	s.iTable[lexeme] = fmt.Sprintf("I%d", nextCode)
+	return nextCode
 }
 
-func (s *Scanner) AddNumConst(lexeme string) {
-	if _, exists := s.nTable[lexeme]; exists {
-		return
+func (s *Scanner) AddNumConst(lexeme string) int {
+	if code, exists := s.nTable[lexeme]; exists {
+		var num int
+		fmt.Sscanf(code, "N%d", &num)
+		return num
 	}
+
 	var nextCode int = len(s.nTable) + 1
-	s.nTable[fmt.Sprintf("N%d", nextCode)] = lexeme
+	s.nTable[lexeme] = fmt.Sprintf("N%d", nextCode)
+	return nextCode
 }
 
-func (s *Scanner) AddCharConst(lexeme string) {
-	if _, exists := s.cTable[lexeme]; exists {
-		return
+func (s *Scanner) AddCharConst(lexeme string) int {
+	if code, exists := s.cTable[lexeme]; exists {
+		var num int
+		fmt.Sscanf(code, "C%d", &num)
+		return num
 	}
+
 	var nextCode int = len(s.cTable) + 1
-	s.cTable[fmt.Sprintf("C%d", nextCode)] = lexeme
+	s.cTable[lexeme] = fmt.Sprintf("C%d", nextCode)
+	return nextCode
 }
