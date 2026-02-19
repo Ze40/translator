@@ -88,17 +88,14 @@ func (s *Scanner) AddCharConst(lexeme string) int {
 	return nextCode
 }
 
-// ITable возвращает таблицю идентификаторов
 func (s *Scanner) ITable() map[string]string {
 	return s.iTable
 }
 
-// NTable возвращает таблицу числовых констант
 func (s *Scanner) NTable() map[string]string {
 	return s.nTable
 }
 
-// CTable возвращает таблицу символьных/строковых констант
 func (s *Scanner) CTable() map[string]string {
 	return s.cTable
 }
