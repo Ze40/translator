@@ -12,6 +12,13 @@ import (
 func WriteTokensToFile(tokens []translator.Token, scanner *translator.Scanner, filename string) error {
 	var sb strings.Builder
 
+	// Запись строки токенов
+	sb.WriteString("Программа в представлении токенов\n")
+	sb.WriteString("-------\n")
+	for _, token := range tokens {
+		sb.WriteString(token.String()+" ")
+	}
+
 	// Запись токенов
 	sb.WriteString("Токены:\n")
 	sb.WriteString("-------\n")
@@ -36,6 +43,21 @@ func WriteTokensToFile(tokens []translator.Token, scanner *translator.Scanner, f
 
 	sb.WriteString("\nСимвольные/строковые константы (C):\n")
 	for lexeme, code := range scanner.CTable() {
+		sb.WriteString(fmt.Sprintf("  %s -> %s\n", code, lexeme))
+	}
+
+	sb.WriteString("\nКлючевые слова (W):\n")
+	for lexeme, code := range scanner.WTable() {
+		sb.WriteString(fmt.Sprintf("  %s -> %s\n", code, lexeme))
+	}
+
+		sb.WriteString("\nОператоры (O):\n")
+	for lexeme, code := range scanner.OTable() {
+		sb.WriteString(fmt.Sprintf("  %s -> %s\n", code, lexeme))
+	}
+
+		sb.WriteString("\n Слова разделители (R):\n")
+	for lexeme, code := range scanner.RTable() {
 		sb.WriteString(fmt.Sprintf("  %s -> %s\n", code, lexeme))
 	}
 

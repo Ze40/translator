@@ -1,4 +1,6 @@
-Токены:
+Программа в представлении токенов
+-------
+W1 I1 R1 W2 I2 R6 W3 I3 R6 W4 W6 I4 R4 W6 I5 R2 W6 I6 R5 R6 W6 I7 R1 I7 O15 I5 O1 I6 R1 W15 I7 R1 R7 W4 W5 I8 R4 W7 R8 R9 I9 R5 R6 W6 I10 R1 W6 I11 O15 N1 R1 W8 I12 R1 W7 I13 R1 W10 I14 R1 I12 O15 N2 R1 W6 R8 R9 I15 O15 W16 W6 R8 N3 R9 R1 I10 O15 N4 R1 W14 R4 I10 O8 N3 R5 R6 I15 R8 I10 R9 O15 I10 O3 N5 R1 I10 O15 I10 O1 N6 R1 R7 I16 R6 I11 O15 I11 O2 N6 R1 R7 W14 R4 I11 O9 N4 R5 R1 W13 R4 I10 O15 N4 R1 I10 O10 N7 R1 I10 O15 I10 O1 N6 R5 R6 W11 R4 I15 R8 I10 R9 O7 N4 R5 R6 I17 R3 I18 R4 I15 R8 I10 R9 R5 R1 R7 W12 R6 I19 I20 R1 R7 R7 I13 O15 C1 R1 I17 R3 I18 R4 I13 R5 R1 I17 R3 I18 R4 I4 R4 N5 R2 N7 R5 R5 R1 I14 O15 R4 N5 O8 N7 R5 O12 R4 N7 O7 N8 R5 O13 W18 R1 W11 R4 I14 R5 R6 I17 R3 I18 R4 C2 R5 R1 R7 I21 I17 R3 I18 R4 C3 R5 R1 R7 R7 R7 Токены:
 -------
 W1: using           (строка 1, колонка 1)
 I1: System          (строка 1, колонка 7)
@@ -232,30 +234,29 @@ R7: }               (строка 63, колонка 1)
 -------
 
 Идентификаторы (I):
-  I2 -> Demo
-  I5 -> a
-  I13 -> msg
-  I18 -> WriteLine
-  I19 -> goto
-  I21 -> END_LABEL:
-  I6 -> b
-  I11 -> n
-  I12 -> x
-  I20 -> END_LABEL
-  I1 -> System
-  I4 -> Sum
-  I9 -> args
-  I10 -> i
-  I14 -> flag
-  I17 -> Console
-  I3 -> Program
-  I7 -> res
   I8 -> Main
+  I13 -> msg
   I15 -> arr
+  I17 -> Console
+  I7 -> res
+  I12 -> x
+  I3 -> Program
+  I10 -> i
+  I11 -> n
+  I14 -> flag
+  I19 -> goto
+  I20 -> END_LABEL
+  I21 -> END_LABEL:
+  I2 -> Demo
+  I4 -> Sum
+  I6 -> b
+  I9 -> args
   I16 -> do
+  I18 -> WriteLine
+  I1 -> System
+  I5 -> a
 
 Числовые константы (N):
-  N6 -> 1
   N7 -> 3
   N8 -> 4
   N1 -> 5
@@ -263,8 +264,62 @@ R7: }               (строка 63, колонка 1)
   N3 -> 10
   N4 -> 0
   N5 -> 2
+  N6 -> 1
 
 Символьные/строковые константы (C):
   C1 -> "sum="
   C2 -> "flag=true"
   C3 -> "done"
+
+Ключевые слова (W):
+  double -> W9
+  return -> W15
+  class -> W3
+  new -> W16
+  if -> W11
+  using -> W1
+  namespace -> W2
+  int -> W6
+  string -> W7
+  true -> W17
+  bool -> W10
+  else -> W12
+  false -> W18
+  for -> W13
+  while -> W14
+  static -> W4
+  void -> W5
+  float -> W8
+
+Операторы (O):
+  /= -> O19
+  - -> O2
+  / -> O4
+  % -> O5
+  != -> O7
+  -= -> O17
+  + -> O1
+  > -> O9
+  <= -> O10
+  ! -> O14
+  %= -> O20
+  == -> O6
+  < -> O8
+  >= -> O11
+  || -> O13
+  *= -> O18
+  * -> O3
+  && -> O12
+  = -> O15
+  += -> O16
+
+ Слова разделители (R):
+  ; -> R1
+  , -> R2
+  . -> R3
+  ( -> R4
+  { -> R6
+  [ -> R8
+  ] -> R9
+  ) -> R5
+  } -> R7

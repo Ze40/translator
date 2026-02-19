@@ -100,6 +100,20 @@ func (s *Scanner) CTable() map[string]string {
 	return s.cTable
 }
 
+func (s *Scanner) WTable() map[string]string {
+	return s.wTable
+}
+
+func (s *Scanner) RTable() map[string]string {
+	return s.rTable
+}
+
+func (s *Scanner) OTable() map[string]string {
+	return s.oTable
+}
+
+
+
 func (s *Scanner) Scan() ([]Token, error) {
 	tokens := make([]Token, 0)
 
